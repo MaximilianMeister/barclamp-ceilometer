@@ -56,6 +56,9 @@
         "ceilometer-cagent": 102,
         "ceilometer-agent": 103,
         "ceilometer-agent-hyperv": 104,
+        "ceilometer-server_remove": 105,
+        "ceilometer-cagent_remove": 106,
+        "ceilometer-agent_remove": 107,
         "ceilometer-swift-proxy-middleware" : 80
       },
       "config": {

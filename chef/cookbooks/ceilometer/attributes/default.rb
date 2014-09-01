@@ -48,12 +48,18 @@ if %w(redhat centos suse).include?(node[:platform])
   alarm_notifier_service_name = "openstack-ceilometer-alarm-notifier"
 end
 
+agent_service_name = "ceilometer-agent-compute"
+if %w(redhat centos suse).include?(node[:platform])
+  agent_service_name = "openstack-ceilometer-agent-compute"
+end
+
 default[:ceilometer][:api][:service_name] = api_service_name
 default[:ceilometer][:collector][:service_name] = collector_service_name
 default[:ceilometer][:agent_notification][:service_name] = agent_notification_service_name
 default[:ceilometer][:central][:service_name] = central_service_name
 default["ceilometer"]["alarm_evaluator"]["service_name"] = alarm_evaluator_service_name
 default["ceilometer"]["alarm_notifier"]["service_name"] = alarm_notifier_service_name
+default[:ceilometer][:agent][:service_name] = agent_service_name
 
 default[:ceilometer][:debug] = false
 default[:ceilometer][:verbose] = false
