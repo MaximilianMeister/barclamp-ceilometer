@@ -16,7 +16,9 @@
 # Wait for all nodes to reach this point so we know that they will have
 # all the required packages installed and configuration files updated
 # before we create the pacemaker resources.
-crowbar_pacemaker_sync_mark "sync-ceilometer_central_before_ha"
+crowbar_pacemaker_sync_mark "sync-ceilometer_central_before_ha" do
+  timeout 120
+end
 
 # Avoid races when creating pacemaker resources
 crowbar_pacemaker_sync_mark "wait-ceilometer_central_ha_resources"
